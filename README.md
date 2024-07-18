@@ -37,4 +37,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 =======
 # Healthcare_app
->>>>>>> 3d5b3bc58e99f3e2272d78a0755b03684f30c25f
+
