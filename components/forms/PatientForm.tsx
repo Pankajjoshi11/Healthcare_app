@@ -10,7 +10,6 @@ import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
 import { UserFormValidation } from "@/lib/validation"
-import { log } from "console"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patients.actions"
 
@@ -81,13 +80,12 @@ const PatientForm=()=> {
             iconAlt="user"
             />
 
-          <CustomFormField 
-            fieldType={FormFieldType.PHONE_INPUT}
-            control={form.control}
-            name="phone"
-            label="Phone Number"
-            placeholder="+91 "
-            
+           <CustomFormField
+              fieldType={FormFieldType.PHONE_INPUT}
+              control={form.control}
+              name="phone"
+              label="Phone Number"
+              placeholder="+91 1234567890"
             />
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>

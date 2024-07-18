@@ -16,15 +16,15 @@ import {
   IdentificationTypes,
   PatientFormDefaultValues,
 } from "@/constants/index.ts";
-import { registerPatient } from "@/lib/actions/patient.actions.ts";
+import { registerPatient } from "../../lib/actions/patients.actions.ts";
 import { PatientFormValidation } from "@/lib/validation";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
-import { FileUploader } from "../FileUploader";
+import { FileUploader } from "../FileUploader.tsx";
 import SubmitButton from "../SubmitButton";
-import { GenderOptions } from "@/constants/index.ts";
+import { GenderOptions } from "../../constants/index.ts";
 
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -34,9 +34,7 @@ const RegisterForm = ({ user }: { user: User }) => {
     resolver: zodResolver(PatientFormValidation),
     defaultValues: {
       ...PatientFormDefaultValues,
-      name: user.name,
-      email: user.email,
-      phone: user.phone,
+
     },
   });
 

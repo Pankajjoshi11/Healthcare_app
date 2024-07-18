@@ -16,7 +16,7 @@ const Register = async({params: {userId}}:SearchParamProps) => {
                     width={1000}
                     alt="patient"
                     className="mb-12 h-10 w-fit"
-                    />
+                  />
 
                 <RegisterForm user={user} />
 
