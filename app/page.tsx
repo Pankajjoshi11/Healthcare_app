@@ -38,4 +38,4 @@ export default function Home({searchParams}:SearchParamProps) {
     </div>
   );
 }
-// 
+// NEXT_PUBLIC_ADMIN_PASSKEY=123456
