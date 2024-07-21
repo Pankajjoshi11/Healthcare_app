@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getPatient } from "@/lib/actions/patients.actions";
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
 
@@ -20,9 +19,8 @@ export default async function NewAppointment({params:{userId}}:SearchParamProps)
           <AppointmentForm
             type='create'
             userId={userId}
-            patientId={patient.$id}
+            patientId={patient?.$id}
           />
-            
             <p className="justify-items-end text-dark-600 xl:text-left">©2024 LifeLine</p>
 
         </div>
