@@ -52,12 +52,12 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           {props.iconSrc && (
             <Image
-              src={props.iconSrc}
-              height={24}
-              width={24}
-              alt={props.iconAlt || "icon"}
-              className="ml-2"
-            />
+            src={props.iconSrc}
+            height={24}  // Adjust height according to the aspect ratio
+            width={24}   // Adjust width according to the aspect ratio
+            alt={props.iconAlt || "icon"}
+            className="ml-2"
+          />
           )}
           <FormControl>
             <Input
@@ -128,6 +128,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker"
             />
+
           </FormControl> 
         </div>
       );

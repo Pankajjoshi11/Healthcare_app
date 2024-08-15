@@ -13,18 +13,18 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { SelectItem } from "@/components/ui/select";
 import {
   Doctors,
+  GenderOptions,
   IdentificationTypes,
   PatientFormDefaultValues,
-} from "@/constants/index.ts";
-import { registerPatient } from "../../lib/actions/patients.actions.ts";
+} from "@/constants";
+import { registerPatient } from "@/lib/actions/patients.actions";
 import { PatientFormValidation } from "@/lib/validation";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
-import { FileUploader } from "../FileUploader.tsx";
+import { FileUploader } from "../FileUploader";
 import SubmitButton from "../SubmitButton";
-import { GenderOptions } from "../../constants/index.ts";
 
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -34,7 +34,9 @@ const RegisterForm = ({ user }: { user: User }) => {
     resolver: zodResolver(PatientFormValidation),
     defaultValues: {
       ...PatientFormDefaultValues,
-
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
     },
   });
 
@@ -139,7 +141,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="phone"
               label="Phone Number"
-              placeholder="+91 1234567890"
+              placeholder="(555) 123-4567"
             />
           </div>
 
@@ -185,7 +187,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="address"
               label="Address"
-              placeholder="A-1101, Sarova Heights, Borivali, Mumbai"
+              placeholder="14 street, New york, NY - 5101"
             />
 
             <CustomFormField
@@ -212,7 +214,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="emergencyContactNumber"
               label="Emergency contact number"
-              placeholder="+91 1234567890"
+              placeholder="(555) 123-4567"
             />
           </div>
         </section>

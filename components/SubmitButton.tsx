@@ -19,10 +19,12 @@ const SubmitButton = ({isLoading, className, children}: ButtonProps) => {
             <div className="flex items-center gap-4">
                 <Image
                     src='/assets/icons/loader.svg'
-                    alt='loader'
+                    alt='Loading...'
                     width={24}
                     height={24}
-                    className='animate-spin'>Loading...</Image>
+                    className='animate-spin'
+                    />
+
             </div>
         ): children}
     </Button>

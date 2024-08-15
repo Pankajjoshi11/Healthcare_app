@@ -1,36 +1,42 @@
 import Image from "next/image";
-import { getPatient } from "@/lib/actions/patients.actions";
-import { AppointmentForm } from "@/components/forms/AppointmentForm";
 
-export default async function NewAppointment({params:{userId}}:SearchParamProps) {
-    const patient=await getPatient(userId)
+import { AppointmentForm } from "@/components/forms/AppointmentForm";
+import { getPatient } from "@/lib/actions/patients.actions";
+
+const Appointment = async ({ params: { userId } }: SearchParamProps) => {
+  const patient = await getPatient(userId);
+
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
-            src='/assets/icons/logo-full.svg'
-            width={1000}
+            src="/assets/icons/logo-full.svg"
             height={1000}
+            width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit">
-
-          </Image>
-          <AppointmentForm
-            type='create'
-            userId={userId}
-            patientId={patient?.$id}
+            className="mb-12 h-10 w-fit"
           />
-            <p className="justify-items-end text-dark-600 xl:text-left">©2024 LifeLine</p>
 
+          <AppointmentForm
+            patientId={patient?.$id}
+            userId={userId}
+            type="create"
+          />
+
+          <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
         </div>
       </section>
+
       <Image
         src="/assets/images/appointment-img.png"
-        width={1000}
-        height={1000}
+        height={1500}
+        width={1500}
         alt="appointment"
-        className="side-img max-w-[390px] bg-bottom"></Image>
+        className="side-img max-w-[390px] bg-bottom"
+      />
     </div>
   );
-}
+};
+
+export default Appointment;
